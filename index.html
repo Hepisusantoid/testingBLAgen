@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daftar Jadi Host Live Streaming</title>
+<meta name="description" content="Agensi talent host live streaming dengan kontrak tertulis, bagi hasil transparan, dan pendampingan keamanan. Khusus usia 18 tahun ke atas.">
+<meta name="theme-color" content="#3B2E8C">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%233B2E8C'/%3E%3Ccircle cx='32' cy='32' r='9' fill='%23FF5C7A'/%3E%3Cpath d='M16 32a16 16 0 0 1 32 0M10 32a22 22 0 0 1 44 0' fill='none' stroke='%23fff' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F7F5FF;--surface:#FFFFFF;--ink:#1B1840;--muted:#55527A;--primary:#3B2E8C;--primary-dark:#2A2066;--accent:#FF5C7A;--soft:#EEEAFF;--line:#DDD8F5;--ok:#1E7B4F;--err:#B3203F;--warn:#7A4E00;--on-dark:#FFFFFF;--on-dark-muted:#E4E0FF}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;font-size:17px;-webkit-text-size-adjust:100%}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+h1{font-size:clamp(2.1rem,7.5vw,3.7rem);line-height:1.08;font-weight:800;letter-spacing:-.03em}
+h2{font-size:clamp(1.6rem,4.8vw,2.3rem);line-height:1.15;font-weight:800;letter-spacing:-.02em;margin-bottom:12px}
+h3{font-size:1.08rem;font-weight:700;line-height:1.35;margin-bottom:6px}
+.lead{color:var(--muted);max-width:58ch;margin-top:16px;font-size:1.05rem}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+/* Bar draft */
+.draft{background:#FFF3CD;color:var(--warn);padding:10px 20px;font-size:.9rem;font-weight:700;text-align:center}
+.draft[hidden]{display:none}
+
+/* Header */
+header.top{position:sticky;top:0;z-index:20;background:rgba(247,245,255,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--ink);text-decoration:none}
+.logo{width:34px;height:34px;border-radius:10px;background:var(--primary);display:grid;place-items:center}
+.logo i{width:12px;height:12px;border-radius:50%;background:var(--accent);display:block}
+
+/* Tombol */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:12px 26px;border:0;border-radius:14px;background:var(--primary);color:var(--on-dark);font:inherit;font-weight:700;text-decoration:none;cursor:pointer;transition:background .2s,transform .2s,box-shadow .2s;box-shadow:0 8px 20px rgba(59,46,140,.28)}
+.btn:hover{background:var(--primary-dark);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--primary);border:2px solid var(--primary);box-shadow:none}
+.btn.ghost:hover{background:var(--soft)}
+.btn.sm{min-height:42px;padding:8px 18px;font-size:.95rem}
+.btn[disabled]{opacity:.65;cursor:not-allowed;transform:none}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;padding:56px 0 72px;background:
+  radial-gradient(60% 60% at 90% 0%,rgba(255,92,122,.18),transparent 70%),
+  radial-gradient(50% 55% at 0% 20%,rgba(59,46,140,.14),transparent 70%),var(--bg)}
+.hero .wrap{display:grid;gap:44px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);color:var(--primary);padding:6px 14px;border-radius:999px;font-weight:700;font-size:.85rem;margin-bottom:20px}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.hero .cta{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px}
+.sheet-wrap{position:relative;padding:0 10px 10px 0;animation:rise .8s ease both}
+.sheet-wrap::before{content:"";position:absolute;inset:14px 0 0 14px;border-radius:22px;background:var(--primary);transform:rotate(2deg)}
+.sheet{position:relative;background:var(--surface);border:2px solid var(--ink);border-radius:20px;padding:24px}
+.sheet-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.sheet-head h3{margin:0;font-size:1.05rem}
+.live{display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:var(--on-dark);padding:4px 10px;border-radius:999px;font-size:.78rem;font-weight:700}
+.live i{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 1.6s ease-in-out infinite}
+.sheet ul{list-style:none;display:grid;gap:14px}
+.sheet li{display:flex;gap:12px;align-items:flex-start;font-weight:600}
+.tick{flex:none;width:26px;height:26px;border-radius:8px;background:var(--accent);color:var(--ink);display:grid;place-items:center;font-weight:800;margin-top:1px}
+.sheet small{display:block;margin-top:18px;padding-top:14px;border-top:1px dashed var(--line);color:var(--muted);font-size:.86rem}
+@keyframes pulse{50%{opacity:.35}}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* Trust strip */
+.trust{background:var(--surface);border-block:1px solid var(--line);padding:22px 0}
+.trust .wrap{display:grid;gap:14px}
+.trust div.t{display:flex;align-items:center;gap:12px;font-weight:700}
+.ico{flex:none;width:44px;height:44px;border-radius:12px;background:var(--soft);color:var(--primary);display:grid;place-items:center}
+.ico svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* Kartu */
+.grid{display:grid;gap:16px;margin-top:32px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px;transition:border-color .2s}
+.card:hover{border-color:var(--primary)}
+.card .ico{margin-bottom:16px}
+.card p{color:var(--muted);font-size:.98rem}
+
+/* Cara kerja (latar gelap, teks terang) */
+.band{background:linear-gradient(135deg,#2A2066 0%,#3B2E8C 60%,#4A39A8 100%);color:var(--on-dark)}
+.band h2{color:var(--on-dark)}
+.band .lead{color:var(--on-dark-muted)}
+.steps{counter-reset:s;list-style:none;display:grid;gap:14px;margin-top:32px}
+.steps li{counter-increment:s;display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:18px;padding:22px}
+.steps li::before{content:counter(s);flex:none;width:38px;height:38px;border-radius:50%;background:var(--accent);color:var(--ink);display:grid;place-items:center;font-weight:800}
+.steps h3{color:var(--on-dark)}
+.steps p{color:var(--on-dark-muted);font-size:.98rem}
+
+/* FAQ */
+.faq{max-width:760px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:0;margin-top:12px;overflow:hidden}
+summary{font-weight:700;cursor:pointer;padding:18px 54px 18px 20px;list-style:none;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);width:28px;height:28px;border-radius:50%;background:var(--soft);color:var(--primary);display:grid;place-items:center;font-weight:800}
+details[open] summary::after{content:"\2212"}
+details[open]{border-color:var(--primary)}
+details p{color:var(--muted);padding:0 20px 18px;font-size:.98rem}
+
+/* Daftar */
+.formgrid{display:grid;gap:32px;align-items:start}
+.perks{list-style:none;display:grid;gap:12px;margin-top:22px}
+.perks li{display:flex;gap:10px;font-weight:600}
+form{background:var(--surface);border:2px solid var(--ink);border-radius:22px;padding:26px;display:grid;gap:18px;box-shadow:8px 8px 0 var(--primary)}
+label{font-weight:700;font-size:.95rem;display:block;margin-bottom:6px}
+input,select{width:100%;min-height:50px;padding:10px 14px;border:2px solid var(--line);border-radius:12px;font:inherit;background:#fff;color:var(--ink)}
+input:focus,select:focus{border-color:var(--primary);outline:none;box-shadow:0 0 0 4px rgba(59,46,140,.15)}
+.field.invalid input,.field.invalid select{border-color:var(--err)}
+.msg{color:var(--err);font-size:.88rem;font-weight:600;margin-top:4px}
+.hint{color:var(--muted);font-size:.85rem;margin-top:4px}
+.check{display:flex;gap:12px;align-items:flex-start}
+.check input{width:22px;min-height:22px;height:22px;margin-top:3px;flex:none;accent-color:var(--primary)}
+.check label{font-weight:500;margin:0}
+.status{display:flex;align-items:center;gap:8px;font-size:.88rem;color:var(--muted)}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--ok)}
+.status.off .dot{background:var(--err)}
+.alert{padding:14px 16px;border-radius:12px;font-weight:600;font-size:.95rem}
+.alert[hidden]{display:none}
+.alert.error{background:#FDE8EC;color:var(--err)}
+.alert.success{background:#E3F4EA;color:var(--ok)}
+.alert .btn{margin-top:10px}
+.spin{width:18px;height:18px;border:3px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:sp .8s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+
+footer{background:var(--ink);color:var(--on-dark-muted);padding:36px 0 48px;font-size:.9rem}
+footer strong{color:var(--on-dark)}
+
+@media(min-width:800px){
+  .hero{padding:80px 0 96px}
+  .hero .wrap{grid-template-columns:1.1fr .9fr}
+  .trust .wrap{grid-template-columns:repeat(3,1fr)}
+  .grid.c4{grid-template-columns:repeat(4,1fr)}
+  .steps{grid-template-columns:1fr 1fr}
+  .formgrid{grid-template-columns:.8fr 1.2fr;gap:56px}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sheet-wrap{animation:none}.live i{animation:none}.spin{animation-duration:2s}.btn{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="draft" id="draftBar" hidden>MODE DRAFT: isi nomor WhatsApp dan nama agensi di bagian CONFIG pada file ini sebelum dipublikasikan.</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><span class="logo" aria-hidden="true"><i></i></span><span data-agency>Nama Agensi</span></a>
+    <a class="btn sm" href="#daftar">Daftar</a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="pill"><i></i>Khusus usia 18 tahun ke atas</span>
+      <h1>Siaran live dengan aturan yang jelas dan bagi hasil yang tertulis.</h1>
+      <p class="lead">Kami mendampingi talent yang ingin menjadi host live streaming: dari kontrak, pelatihan tampil di kamera, sampai menjaga keamanan data pribadi.</p>
+      <div class="cta">
+        <a class="btn" href="#daftar">Daftar sekarang</a>
+        <a class="btn ghost" href="#cara">Lihat cara kerjanya</a>
+      </div>
+    </div>
+    <div class="sheet-wrap">
+      <aside class="sheet" aria-label="Janji tertulis kami">
+        <div class="sheet-head"><h3>Janji tertulis kami</h3><span class="live"><i></i>LIVE</span></div>
+        <ul>
+          <li><span class="tick" aria-hidden="true">✓</span>Khusus usia 18+, identitas diverifikasi</li>
+          <li><span class="tick" aria-hidden="true">✓</span>Kontrak tertulis sebelum mulai siaran</li>
+          <li><span class="tick" aria-hidden="true">✓</span>Bagi hasil ditulis jelas di kontrak</li>
+          <li><span class="tick" aria-hidden="true">✓</span>Tanpa konten seksual, tanpa paksaan</li>
+          <li><span class="tick" aria-hidden="true">✓</span>Boleh berhenti kapan saja, tanpa denda</li>
+        </ul>
+        <small>Semua poin ini kami tuangkan di kontrak, bukan hanya janji lisan.</small>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap">
+    <div class="t"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h8l4 4v14H7zM15 3v4h4M10 12h6M10 16h6"/></svg></span>Kontrak tertulis</div>
+    <div class="t"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3zM9 12l2 2 4-4"/></svg></span>Verifikasi usia 18+</div>
+    <div class="t"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M16 14h2"/></svg></span>Tanpa biaya pendaftaran</div>
+  </div>
+</div>
+
+<section id="bantu">
+  <div class="wrap">
+    <h2>Yang kami bantu untuk host</h2>
+    <p class="lead">Host yang bertahan lama adalah host yang merasa aman dan tahu apa yang harus dilakukan. Itu fokus kami.</p>
+    <div class="grid c4">
+      <div class="card"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3zM5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span><h3>Pelatihan tampil</h3><p>Cara membuka siaran, mengobrol dengan penonton, dan menjaga suasana tetap nyaman.</p></div>
+      <div class="card"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/></svg></span><h3>Keamanan pribadi</h3><p>Menjaga alamat, nomor, dan data pribadi agar tidak bocor saat siaran.</p></div>
+      <div class="card"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span><h3>Jadwal fleksibel</h3><p>Jadwal siaran kamu tentukan sendiri, disesuaikan dengan kegiatan harianmu.</p></div>
+      <div class="card"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4V5z"/></svg></span><h3>Pendampingan</h3><p>Ada orang yang bisa dihubungi jika menemui penonton yang melecehkan atau mengganggu.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="cara" class="band">
+  <div class="wrap">
+    <h2>Cara bergabung</h2>
+    <p class="lead">Prosesnya berurutan, dan kamu bisa berhenti di tahap mana pun.</p>
+    <ol class="steps">
+      <li><div><h3>Isi formulir singkat</h3><p>Kami hanya meminta data dasar untuk menghubungimu lewat WhatsApp.</p></div></li>
+      <li><div><h3>Ngobrol dan tanya jawab</h3><p>Kami jelaskan cara kerja, risiko, dan skema bagi hasil. Kamu bebas bertanya apa saja.</p></div></li>
+      <li><div><h3>Verifikasi dan kontrak</h3><p>Verifikasi usia, lalu kamu baca dan tanda tangani kontrak. Tidak ada biaya pendaftaran.</p></div></li>
+      <li><div><h3>Latihan dan siaran pertama</h3><p>Kami temani sesi latihan sebelum kamu siaran perdana.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap faq">
+    <h2>Pertanyaan yang sering diajukan</h2>
+    <details><summary>Apakah ada biaya pendaftaran atau top-up?</summary><p>Tidak ada. Kami tidak pernah meminta uang pendaftaran, deposit, atau top-up dari calon host. Jika ada pihak yang mengatasnamakan kami meminta uang, abaikan dan laporkan ke kami.</p></details>
+    <details><summary>Berapa penghasilan seorang host?</summary><p>Penghasilan bergantung pada jumlah penonton dan dukungan yang diterima, jadi kami tidak menjanjikan angka tertentu. Skema bagi hasil dijelaskan lengkap di kontrak sebelum kamu mulai.</p></details>
+    <details><summary>Apakah saya harus tampil dengan konten dewasa?</summary><p>Tidak. Kami tidak mengizinkan konten seksual dan tidak akan menekan host untuk melakukannya. Jika ada penonton atau pihak mana pun yang memaksa, kami akan membantumu melaporkannya.</p></details>
+    <details><summary>Bagaimana jika saya ingin berhenti?</summary><p>Kamu bisa berhenti kapan saja tanpa denda. Cukup kabari kami.</p></details>
+    <details><summary>Apakah saya perlu memberi tahu keluarga?</summary><p>Kami hanya menerima usia 18 tahun ke atas. Kami menyarankan kamu memberi tahu keluarga atau orang terdekat, dan kami bersedia menjelaskan pekerjaan ini kepada mereka jika kamu mau.</p></details>
+    <details><summary>Data pribadi saya dipakai untuk apa?</summary><p>Hanya untuk menghubungimu dan memproses pendaftaran. Data tidak dijual atau dibagikan ke pihak lain.</p></details>
+  </div>
+</section>
+
+<section id="daftar" style="background:var(--soft)">
+  <div class="wrap formgrid">
+    <div>
+      <h2>Mulai dengan satu langkah kecil</h2>
+      <p class="lead">Setelah kamu menekan tombol kirim, WhatsApp akan terbuka dengan pesan yang sudah terisi. Tekan kirim di WhatsApp untuk menyelesaikan pendaftaran.</p>
+      <ul class="perks">
+        <li><span class="tick" aria-hidden="true">✓</span>Gratis, tanpa biaya apa pun</li>
+        <li><span class="tick" aria-hidden="true">✓</span>Tanya jawab dulu, tanpa kewajiban</li>
+        <li><span class="tick" aria-hidden="true">✓</span>Data hanya untuk menghubungimu</li>
+      </ul>
+    </div>
+    <form id="regForm" novalidate>
+      <div class="status" id="status" role="status"><span class="dot"></span><span id="statusText">Terhubung</span></div>
+      <div class="field" id="f-nama"><label for="nama">Nama panggilan</label><input id="nama" name="nama" type="text" autocomplete="given-name" maxlength="40"><div class="msg" id="m-nama"></div></div>
+      <div class="row">
+        <div class="field" id="f-umur"><label for="umur">Umur</label><input id="umur" name="umur" type="text" inputmode="numeric" maxlength="2"><div class="hint">Minimal 18 tahun</div><div class="msg" id="m-umur"></div></div>
+        <div class="field" id="f-kota"><label for="kota">Kota atau kabupaten</label><input id="kota" name="kota" type="text" autocomplete="address-level2" maxlength="50"><div class="msg" id="m-kota"></div></div>
+      </div>
+      <div class="field" id="f-wa"><label for="wa">Nomor WhatsApp</label><input id="wa" name="wa" type="tel" inputmode="numeric" autocomplete="tel" placeholder="08xxxxxxxxxx" maxlength="15"><div class="msg" id="m-wa"></div></div>
+      <div class="field" id="f-exp"><label for="exp">Pengalaman live atau konten</label>
+        <select id="exp" name="exp"><option value="">Pilih salah satu</option><option>Belum pernah</option><option>Pernah mencoba</option><option>Aktif membuat konten</option></select><div class="msg" id="m-exp"></div></div>
+      <div class="field" id="f-setuju"><div class="check"><input id="setuju" type="checkbox"><label for="setuju">Saya berusia 18 tahun ke atas dan setuju datanya dipakai untuk menghubungi saya terkait pendaftaran ini.</label></div><div class="msg" id="m-setuju"></div></div>
+      <div class="alert error" id="errBox" role="alert" hidden></div>
+      <div class="alert success" id="okBox" role="status" hidden></div>
+      <button class="btn" id="submitBtn" type="submit"><span id="btnText">Kirim lewat WhatsApp</span></button>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong data-agency>Nama Agensi</strong> adalah agensi talent mandiri dan bukan bagian resmi dari aplikasi mana pun. Penghasilan host tidak dijamin. Khusus usia 18 tahun ke atas.</p>
+  </div>
+</footer>
+
+<script>
+/* ====== ISI BAGIAN INI SEBELUM PUBLISH ====== */
+var CONFIG = {
+  AGENCY: "Admin BL Agen",          // ganti dengan nama agensimu
+  WA: "6285764180605"             // format 62 tanpa + dan tanpa 0, contoh 6281234567890
+};
+/* ============================================ */
+
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var isDraft = !/^62\d{8,13}$/.test(CONFIG.WA);
+
+  document.querySelectorAll("[data-agency]").forEach(function (el) { el.textContent = CONFIG.AGENCY; });
+  $("draftBar").hidden = !isDraft;
+
+  /* Status koneksi */
+  function updateStatus() {
+    var on = navigator.onLine;
+    $("status").className = "status" + (on ? "" : " off");
+    $("statusText").textContent = on ? "Terhubung" : "Tidak ada koneksi internet. Periksa jaringanmu.";
+  }
+  window.addEventListener("online", updateStatus);
+  window.addEventListener("offline", updateStatus);
+  updateStatus();
+
+  /* Hanya angka untuk umur dan WhatsApp */
+  ["umur", "wa"].forEach(function (id) {
+    $(id).addEventListener("input", function () { this.value = this.value.replace(/\D/g, ""); });
+  });
+
+  function setErr(field, text) {
+    $("f-" + field).classList.toggle("invalid", !!text);
+    $("m-" + field).textContent = text || "";
+    return !text;
+  }
+
+  function validate() {
+    var nama = $("nama").value.trim(), umur = $("umur").value.trim(), kota = $("kota").value.trim();
+    var wa = $("wa").value.trim(), exp = $("exp").value, setuju = $("setuju").checked;
+    var ok = true;
+    ok = setErr("nama", nama.length < 2 ? "Nama wajib diisi, minimal 2 huruf." : "") && ok;
+    var u = parseInt(umur, 10);
+    var umurMsg = "";
+    if (!umur) umurMsg = "Umur wajib diisi.";
+    else if (isNaN(u)) umurMsg = "Umur harus berupa angka.";
+    else if (u < 18) umurMsg = "Maaf, pendaftaran hanya untuk usia 18 tahun ke atas.";
+    else if (u > 60) umurMsg = "Periksa kembali umurmu, angkanya terlalu besar.";
+    ok = setErr("umur", umurMsg) && ok;
+    ok = setErr("kota", kota.length < 2 ? "Kota atau kabupaten wajib diisi." : "") && ok;
+    var waMsg = "";
+    if (!wa) waMsg = "Nomor WhatsApp wajib diisi.";
+    else if (!/^(08|628)\d{7,12}$/.test(wa)) waMsg = "Nomor tidak valid. Gunakan format 08xxxxxxxxxx.";
+    ok = setErr("wa", waMsg) && ok;
+    ok = setErr("exp", exp ? "" : "Pilih salah satu pengalaman.") && ok;
+    ok = setErr("setuju", setuju ? "" : "Kamu perlu menyetujui pernyataan ini untuk mendaftar.") && ok;
+    return ok;
+  }
+
+  function setLoading(on) {
+    $("submitBtn").disabled = on;
+    $("btnText").innerHTML = on ? '<span class="spin" aria-hidden="true"></span> Membuka WhatsApp...' : "Kirim lewat WhatsApp";
+  }
+
+  function showError(text, retry) {
+    var box = $("errBox");
+    box.textContent = text;
+    if (retry) {
+      var btn = document.createElement("button");
+      btn.type = "button"; btn.className = "btn sm"; btn.textContent = "Coba lagi";
+      btn.addEventListener("click", function () {
+        $("regForm").dispatchEvent(new Event("submit", { cancelable: true, bubbles: true }));
+      });
+      box.appendChild(document.createElement("br")); box.appendChild(btn);
+    }
+    box.hidden = false;
+  }
+
+  $("regForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    if ($("submitBtn").disabled) return;
+    $("errBox").hidden = true; $("okBox").hidden = true;
+    if (!validate()) { showError("Ada isian yang belum benar. Periksa pesan berwarna merah di atas."); return; }
+    if (isDraft) { showError("Nomor WhatsApp agensi belum diisi di CONFIG. Pemilik situs perlu mengisinya sebelum formulir bisa dipakai."); return; }
+    if (!navigator.onLine) { showError("Tidak ada koneksi internet, formulir belum terkirim. Periksa jaringanmu lalu coba lagi.", true); return; }
+    setLoading(true);
+    try {
+      var text = "Halo " + CONFIG.AGENCY + ", saya ingin mendaftar jadi host live streaming.\n" +
+        "Nama: " + $("nama").value.trim() + "\n" +
+        "Umur: " + $("umur").value.trim() + "\n" +
+        "Kota: " + $("kota").value.trim() + "\n" +
+        "WhatsApp: " + $("wa").value.trim() + "\n" +
+        "Pengalaman: " + $("exp").value + "\n" +
+        "Saya sudah berusia 18 tahun ke atas.";
+      var url = "https://wa.me/" + CONFIG.WA + "?text=" + encodeURIComponent(text);
+      var w = window.open(url, "_blank", "noopener");
+      if (!w) { window.location.href = url; }
+      $("okBox").textContent = "WhatsApp sudah dibuka. Tekan tombol kirim di WhatsApp untuk menyelesaikan pendaftaran. Jika tidak terbuka, tekan kirim sekali lagi.";
+      $("okBox").hidden = false;
+    } catch (err) {
+      showError("WhatsApp gagal dibuka (" + (err && err.message ? err.message : "kesalahan tidak diketahui") + "). Tekan Coba lagi, atau hubungi kami langsung di nomor " + CONFIG.WA + ".", true);
+    } finally {
+      setLoading(false);
+    }
+  });
+})();
+</script>
+</body>
+</html>
